@@ -1,0 +1,34 @@
+.spanImage {
+    width: 250px;
+}
+
+.messagePA {
+    color: #63cdeb;
+    position: relative;
+    margin-top: -20px;
+}
+
+.mesesageH {
+    color: rgb(54, 155, 244);
+    position: relative;
+    margin-top: -45px;
+    font-style: italic;
+}
+
+.modalContentStyles {
+    background-color: white;
+    padding: 20px 45px 25px 45px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.buttonStyles {
+    padding: 10px 40px;
+    background: #e2f7fd;
+    color: #528aa7;
+    font-weight: 700;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+     margin-top: 10px;
+}
