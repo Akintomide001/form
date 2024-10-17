@@ -17,7 +17,7 @@ function ErrorAlert({ isOpen, onClose, message }) {
         </div>
         <h2 className='errorh'>Oooops!!!!!!!</h2>
         <p className='errorp' style={{color: 'black'}}>I think we have a little error</p>
-        <button onClick={onClose} className='buttonStyles'>Let fix that</button>
+        <button onClick={onClose} className='buttonStyle'>Let fix that</button>
       </div>
     </div>
   );

@@ -210,6 +210,9 @@ option {
 .formNumber{
     color: rgb(97, 96, 96);
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    
     
 }
 .formNumber label{

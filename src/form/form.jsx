@@ -119,12 +119,18 @@ export default function Form() {
 
     const handlePhoneNumberChange = (e) => {
         const input = e.target.value;
+        const areaCodeLength = selectedCountry?.areaCode?.length || 0;
+        if (e.target.selectionStart < areaCodeLength) {
+            e.preventDefault();  // Prevent cursor from entering the area code
+            return;
+        }
+        const phoneNumber = input.slice(areaCodeLength);  // Extract only the phone number part
         setFormData({
-          ...formData,
-          phoneNumber: input,  // Store only the phone number entered by the user (without area code)
+            ...formData,
+            phoneNumber: phoneNumber,  // Store only the phone number entered by the user (without area code)
         });
-      };
-    
+    };
+
 
 
 
@@ -243,27 +249,34 @@ export default function Form() {
                             )}
                         </div>
                         {/*  */}
+
+
+                        {/* Updated: Phone Number Field now includes Area Code */}
                         <div className='formNumber'>
                             <label htmlFor="phoneNumber">Phone Number:</label>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <input
-                                    type="text"
-                                    value={selectedCountry?.areaCode || ''}
-                                    readOnly
-                                    style={{ width: '60px', marginRight: '10px' }}
-                                />
-                                <input
-                                    type="text"
-                                    id="phoneNumber"
-                                    name="phoneNumber"
-                                    value={formData.phoneNumber}
-                                    onChange={handlePhoneNumberChange}
-                                    placeholder="Enter phone number"
-                                />
-                            </div>
-                            {/* {selectedCountry && (
-                                <p>Selected Country: {selectedCountry.name}, Area Code: {selectedCountry.areaCode}</p>
-                            )} */}
+                            <input
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                value={selectedCountry?.areaCode ? selectedCountry.areaCode + formData.phoneNumber : formData.phoneNumber}
+                                onChange={handlePhoneNumberChange}
+                                placeholder="Enter phone number"
+                                maxLength={selectedCountry?.areaCode?.length + 10} // Set max length to area code length + 10 digits
+                                onClick={(e) => {
+                                    // Prevent cursor from moving before area code
+                                    const areaCodeLength = selectedCountry?.areaCode?.length || 0;
+                                    if (e.target.selectionStart < areaCodeLength) {
+                                        e.target.setSelectionRange(areaCodeLength, areaCodeLength);
+                                    }
+                                }}
+                                onKeyUp={(e) => {
+                                    // Prevent backspace from deleting area code
+                                    const areaCodeLength = selectedCountry?.areaCode?.length || 0;
+                                    if (e.target.selectionStart < areaCodeLength) {
+                                        e.target.setSelectionRange(areaCodeLength, areaCodeLength);
+                                    }
+                                }}
+                            />
                         </div>
 
 
