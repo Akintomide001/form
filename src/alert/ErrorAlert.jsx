@@ -1,17 +1,23 @@
 // ErrorModal.js
 import React from 'react';
+import oops from "../images/oops.png"
+import "../styles/alert.css"
+
 
 function ErrorAlert({ isOpen, onClose, message }) {
-  if (!isOpen) {
-    return null; // If modal is not open, return null (don't display it)
-  }
+  // if (!isOpen) {
+  //   return null; // If modal is not open, return null (don't display it)
+  // }
 
   return (
     <div style={modalStyles}>
       <div style={modalContentStyles}>
-        <h2>Error!</h2>
-        <p style={{color: 'black'}}>ppppppppp</p>
-        <button onClick={onClose} style={buttonStyles}>OK</button>
+        <div>
+        <img src={oops} alt='' className='spanImage2' />
+        </div>
+        <h2 className='errorh'>Oooops!!!!!!!</h2>
+        <p className='errorp' style={{color: 'black'}}>I think we have a little error</p>
+        <button onClick={onClose} className='buttonStyles'>Let fix that</button>
       </div>
     </div>
   );
@@ -32,7 +38,7 @@ const modalStyles = {
 
 const modalContentStyles = {
   backgroundColor: 'white',
-  padding: '100px',
+  padding: '30px 100px',
   borderRadius: '10px',
   textAlign: 'center',
 };
@@ -41,6 +47,7 @@ const buttonStyles = {
   padding: '10px 20px',
   backgroundColor: '#f44336',
   color: 'white',
+  font :'10px',
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',
