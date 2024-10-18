@@ -58,3 +58,29 @@
   margin-top:20px;
 
 }
+@media screen and (max-width: 505px) {
+    .modalContentStyles {
+        padding: 10px 20px;
+    }
+    .spanImage2{
+        width: 60px;
+    }
+    .errorh{
+        font-size: 20px;
+    }
+    .errorp{
+        font-size: 12px;
+    }
+    .buttonStyle{
+        margin-top: 7px;
+    }
+    .spanImage{
+        width: 150px;
+    }
+    .messagePA {
+        margin-top: -5px;
+    }
+.mesesageH{
+    margin-top: -20px;
+}
+}

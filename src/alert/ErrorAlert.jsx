@@ -11,7 +11,7 @@ function ErrorAlert({ isOpen, onClose, message }) {
 
   return (
     <div style={modalStyles}>
-      <div style={modalContentStyles}>
+      <div className="modalContentStyles">
         <div>
         <img src={oops} alt='' className='spanImage2' />
         </div>

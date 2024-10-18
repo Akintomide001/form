@@ -137,9 +137,8 @@ export default function Form() {
 
     return (
         <>
-            <div className='FormBackground'>
-                <div className='formMain'>
-                    <form onSubmit={handleSubmit}>
+            <div className='formMain'>
+                    <form onSubmit={handleSubmit} className='theform' >
                         <div className='formName'>
                             <div className='formName1'>
                                 <label htmlFor="firstName">First Name:</label>
@@ -248,7 +247,7 @@ export default function Form() {
                                 </ul>
                             )}
                         </div>
-                        {/*  */}
+                        
 
 
                         {/* Updated: Phone Number Field now includes Area Code */}
@@ -279,10 +278,11 @@ export default function Form() {
                             />
                         </div>
 
+                        <div className='buttonR'>
+                            <button className='TheButton' type="submit">Submit</button>
 
-                        <button className='TheButton' type="submit">Submit</button>
+                        </div>
                     </form>
-                </div >
                 <SuccessAlert isOpen={isSubmitted} onClose={handleCloseSuccessModal} />
                 {
                     isError && (
